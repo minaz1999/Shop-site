@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,900;1,600&display=swap');
 
-
 *{
     font-family: 'montserrat',sans-serif;
     margin: 0;
@@ -8,10 +7,7 @@
     box-sizing: border-box;
 }
 
-
-
-
- .header{
+.header{
     position: fixed;
     top: 0;
     left: 0;
@@ -19,12 +15,11 @@
     padding: 30px 5%;
     background: transparent;
     display: flex;
+    justify-content: space-between; /* اضافه شد: برای توزیع بهتر عناصر در هدر */
     align-items: center;
     z-index: 100;
 }
     
-    
-
 .logo{
     font-size: 30px;
     color: #fff;
@@ -32,13 +27,9 @@
     font-weight: 700;
 }
 
-
-
-
 .social-media{
-    margin: 0 auto 0 50px;
+    margin: 0 auto 0 50px; /* این خط را می توانید حذف کنید یا نگه دارید، در موبایل override می شود */
 }
-    
     
 .social-media a{
     display:inline-flex;
@@ -54,26 +45,20 @@
     transform:  .5s;
 }
 
-
- .social-media a:hover{
+.social-media a:hover{
     background: #fff;
 }   
     
-
-
 .social-media a i{
     font-size: 20px;
     color: #fff;
     transition:  .5s;
 }
 
-
 .social-media a:hover i{
     color: #444;
 }   
     
-    
-
 .navbar a{
     font-size: 18px;
     color: #fff;
@@ -83,24 +68,23 @@
     text-shadow: 0 0 10px rgba(0, 0, 0, .2);
 }    
 
-
-
 .banner{
     position: relative;
     width: 100%;
     height: 100vh;
+    overflow: hidden; /* اضافه شد: برای جلوگیری از اسکرول افقی ناخواسته */
 }
-
-
 
 .slider  .slide{
     position: absolute;
     width: 100%;
     height: 100%;
+    display: flex; /* اضافه شد: برای استفاده از Flexbox */
+    flex-direction: row; /* پیش فرض در دسکتاپ */
+    flex-wrap: wrap; /* برای اینکه عناصر در موبایل زیر هم بیایند */
+    justify-content: center; /* وسط چین کردن عناصر */
+    align-items: center; /* وسط چین کردن عمودی */
 }
-
-
-
 
 .slide img{
     position: absolute;
@@ -108,65 +92,61 @@
     height: 100%;
     object-fit: cover;
     pointer-events: none;
+    z-index: -1; /* اضافه شد: مطمئن شوید تصویر همیشه در پشت باشد */
 }
-
-
 
 .slide .left-info{
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative; /* تغییر مهم: برای موبایل بهتر است از absolute خارج شود */
+    top: auto;
+    left: auto;
     width: 50%;
     height: 100%;
+    display: flex; /* اضافه شد: برای چیدمان داخلی flex */
+    flex-direction: column; /* چیدمان ستونی */
+    justify-content: center; /* محتوا وسط چین شود */
+    align-items: center; /* محتوا وسط چین شود */
+    text-align: center; /* متن وسط چین شود */
+    z-index: 1; /* برای اطمینان از قرار گرفتن روی تصویر */
 }
-
-
 
 .left-info .penetrte-blur{
-    position: absolute;
+    position: relative; /* تغییر مهم: از absolute خارج شود */
     width: 100%;
-    height: 100%;
+    height: auto; /* ارتفاع خودکار */
     background: rgba(255, 255, 255, .1);
     backdrop-filter: blur(20px);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    -webkit-mask: linear-gradient(#000 0 0),
-    linear-gradient(#000 0 0);
-    -webkit-mask-clip: text,padding-box;
-    -webkit-mask-composite: xor;
+    display: flex; /* تغییر: برای محتوای داخلی */
+    justify-content: center; /* وسط چین */
+    align-items: center; /* وسط چین */
+    /* -webkit-mask و mask-clip و mask-composite را برای سازگاری بهتر حذف می کنیم */
+    -webkit-mask: none;
+    -webkit-mask-clip: unset;
+    -webkit-mask-composite: unset;
 }
-
-
 
 .penetrte-blur h1{
     font-size: 150px;
     text-shadow: 0 0 10px rgba(255, 255 ,255 ,.1);
-
+    /* ممکن است نیاز باشد در موبایل کوچکتر شود */
 }
-
-
 
 .left-info  .content{
-    position: absolute;
-    bottom: 8%;
-    left: 10%;
+    position: relative; /* تغییر مهم: از absolute خارج شود */
+    bottom: auto;
+    left: auto;
     color: #fff;
+    padding: 20px; /* اضافه شد: کمی padding برای محتوا */
+    text-align: center; /* مطمئن شوید متن وسط چین است */
 }
-
-
 
 .content h3{
     font-size: 20px;
 }
 
-
 .content p{
     font-size: 16px;
     margin: 10px 0 15px;
 }
-
-
 
 .content .btn{
     display: inline-block;
@@ -182,26 +162,24 @@
     transition: .5s;
 }
 
-
 .content  .btn:hover{
     background: transparent;
     color: #fff;
 }
 
-
-
 .slide  .right-info{
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: relative; /* تغییر مهم: برای موبایل بهتر است از absolute خارج شود */
+    top: auto;
+    right: auto;
     width: 50%;
     height: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column; /* چیدمان ستونی */
+    justify-content: center; /* محتوا وسط چین شود */
+    align-items: center; /* محتوا وسط چین شود */
+    text-align: center; /* متن وسط چین شود */
+    z-index: 1; /* برای اطمینان از قرار گرفتن روی تصویر */
 }
-
-
-
 
 .right-info  h1{
     font-size: 150px;
@@ -221,146 +199,148 @@
     0 20px 20px rgba(0, 0, 0, .15);
 }
 
-
-
 .right-info  h3{
-    position: absolute;
+    position: relative; /* تغییر مهم: از absolute خارج شود */
     font-size: 70px;
     color: #fff;
     text-shadow: 0 0 10px rgba(0, 0 , 0, .5);
-    transform: translateY(120%);
-    margin-left: 13px;
-
+    transform: none; /* حذف ترنسفورم */
+    margin-left: 0; /* حذف margin */
+    margin-top: 20px; /* اضافه شد: کمی فاصله از h1 */
 }
-
 
 /* Media Queries for Responsive Design */
 
 /* برای صفحه نمایش های کوچکتر از 768px (معمولا تبلت ها و گوشی ها) */
 @media (max-width: 768px) {
     .header {
-        padding: 20px 3%; /* کاهش padding هدر */
+        padding: 20px 3%;
+        flex-direction: column; /* عناصر هدر زیر هم قرار بگیرند */
+        position: relative; /* از fixed خارج شود تا اسکرول شود و Navbar دیده شود */
+        height: auto; /* ارتفاع هدر خودکار شود */
     }
 
     .logo {
-        font-size: 24px; /* کاهش سایز فونت لوگو */
+        font-size: 24px;
+        margin-bottom: 10px; /* اضافه شد: فاصله از عناصر پایین */
     }
 
     .social-media {
-        margin: 0 auto 0 20px; /* کاهش margin اجتماعی */
+        margin: 10px 0; /* تنظیم margin */
     }
 
     .social-media a {
         width: 30px;
-        height: 30px; /* کاهش سایز آیکون های اجتماعی */
+        height: 30px;
     }
 
     .social-media a i {
-        font-size: 18px; /* کاهش سایز فونت آیکون ها */
-    }
-
-    .slide .left-info {
-        width: 100%; /* در گوشی، بخش چپ تمام عرض را بگیرد */
-        height: auto; /* ارتفاع خودکار */
-        position: relative; /* موقعیت نسبی برای ترتیب عناصر */
-        padding-bottom: 20px; /* اضافه کردن کمی padding در پایین */
-    }
-
-    .left-info .penetrte-blur {
-        position: relative; /* تغییر از absolute به relative */
-        height: auto; /* ارتفاع خودکار */
-        display: block; /* برای اینکه h1 در خط جدید بیاید */
-        text-align: center; /* متن وسط چین شود */
-        padding: 50px 0 20px; /* اضافه کردن padding */
-    }
-
-    .penetrte-blur h1 {
-        font-size: 80px; /* کاهش سایز فونت h1 بزرگ */
-    }
-
-    .left-info .content {
-        position: relative; /* تغییر از absolute به relative */
-        bottom: auto; /* حذف bottom */
-        left: 0; /* حذف left */
-        text-align: center; /* وسط چین کردن محتوا */
-        padding: 0 5%; /* اضافه کردن padding افقی */
-    }
-
-    .content h3 {
-        font-size: 24px; /* تنظیم سایز فونت h3 */
-    }
-
-    .content h4 { /* اگر h4 در html دارید و می خواهید تغییر دهید */
         font-size: 18px;
     }
 
-    .content p {
-        font-size: 14px; /* تنظیم سایز فونت پاراگراف */
+    .navbar {
+        width: 100%; /* navbar تمام عرض را بگیرد */
+        text-align: center; /* لینک ها وسط چین شوند */
+        margin-top: 10px; /* اضافه شد: فاصله از social media */
     }
 
-    .content .btn {
-        padding: 10px 20px; /* کاهش اندازه دکمه */
-        font-size: 14px;
+    .navbar a {
+        margin: 0 10px; /* فاصله بین لینک ها */
+        display: inline-block; /* برای اینکه margin افقی کار کند */
     }
 
+    .banner {
+        height: auto; /* ارتفاع بنر خودکار شود */
+        padding-top: 0; /* حذف padding اضافی */
+    }
+
+    .slider .slide {
+        flex-direction: column; /* عناصر slide زیر هم قرار بگیرند */
+        position: relative;
+        height: auto;
+    }
+
+    .slide .left-info,
     .slide .right-info {
-        width: 100%; /* در گوشی، بخش راست تمام عرض را بگیرد */
+        width: 100%; /* هر دو بخش چپ و راست تمام عرض را بگیرند */
         height: auto; /* ارتفاع خودکار */
-        display: block; /* برای اینکه h1 و h3 در خط جدید بیایند */
-        text-align: center; /* وسط چین شدن */
-        padding-top: 20px; /* کمی فاصله از بالا */
+        padding: 20px 5%; /* padding داخلی برای محتوا */
+        min-height: 50vh; /* حداقل ارتفاع برای هر بخش */
     }
 
+    .penetrte-blur h1,
     .right-info h1 {
         font-size: 80px; /* کاهش سایز فونت h1 بزرگ */
     }
 
     .right-info h3 {
-        position: relative; /* تغییر از absolute به relative */
-        transform: none; /* حذف ترنسفورم */
-        margin-left: 0; /* حذف margin */
         font-size: 40px; /* کاهش سایز فونت h3 */
-        padding-bottom: 30px; /* فاصله از پایین */
+        margin-top: 10px; /* تنظیم margin top */
+    }
+
+    .content h3 {
+        font-size: 20px;
+    }
+
+    .content p {
+        font-size: 14px;
+    }
+
+    .content .btn {
+        padding: 10px 20px;
+        font-size: 14px;
     }
     
     .slide img {
-        /* ممکن است نیاز باشد برای موبایل اندازه تصویر پس زمینه را کمی متفاوت کنید */
-        object-position: center; /* تصویر وسط چین شود */
+        object-position: center; /* تصویر پس زمینه وسط چین شود */
+        height: 100%; /* اطمینان از پوشش کامل ارتفاع در موبایل */
     }
 }
 
 /* برای صفحه نمایش های کوچکتر از 480px (معمولا گوشی های کوچک) */
 @media (max-width: 480px) {
     .header {
-        padding: 15px 2%; /* padding کمتر برای هدر */
-        flex-direction: column; /* عناصر هدر زیر هم قرار بگیرند */
-        position: relative; /* از fixed خارج شود تا اسکرول شود */
-    }
-
-    .social-media {
-        margin: 10px 0 0; /* margin برای جداسازی از لوگو */
+        padding: 10px 2%;
     }
 
     .logo {
-        font-size: 20px; /* کوچکتر کردن لوگو */
+        font-size: 20px;
+    }
+    
+    .social-media a {
+        width: 25px;
+        height: 25px;
     }
 
-    .penetrte-blur h1 {
-        font-size: 60px; /* باز هم کوچکتر کردن h1 */
+    .social-media a i {
+        font-size: 16px;
     }
 
+    .navbar a {
+        font-size: 16px;
+        margin: 0 8px;
+    }
+
+    .penetrte-blur h1,
     .right-info h1 {
-        font-size: 60px; /* باز هم کوچکتر کردن h1 سمت راست */
+        font-size: 50px;
     }
 
     .right-info h3 {
-        font-size: 30px; /* کوچکتر کردن h3 سمت راست */
+        font-size: 30px;
     }
 
     .content h3 {
-        font-size: 20px;
+        font-size: 18px;
     }
-    .content h4 {
-        font-size: 16px;
+
+    .content p {
+        font-size: 12px;
+    }
+
+    .content .btn {
+        padding: 8px 15px;
+        font-size: 12px;
     }
 }
+

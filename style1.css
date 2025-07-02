@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,900;1,600&display=swap');
 
+
 *{
     font-family: 'montserrat',sans-serif;
     margin: 0;
@@ -7,7 +8,10 @@
     box-sizing: border-box;
 }
 
-.header{
+
+
+
+ .header{
     position: fixed;
     top: 0;
     left: 0;
@@ -15,11 +19,12 @@
     padding: 30px 5%;
     background: transparent;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     z-index: 100;
 }
     
+    
+
 .logo{
     font-size: 30px;
     color: #fff;
@@ -27,9 +32,13 @@
     font-weight: 700;
 }
 
+
+
+
 .social-media{
     margin: 0 auto 0 50px;
 }
+    
     
 .social-media a{
     display:inline-flex;
@@ -42,23 +51,29 @@
     border-radius: 7px;
     text-decoration: none;
     margin-right: 5px;
-    transition:  .5s;
+    transform:  .5s;
 }
 
-.social-media a:hover{
+
+ .social-media a:hover{
     background: #fff;
 }   
     
+
+
 .social-media a i{
     font-size: 20px;
     color: #fff;
     transition:  .5s;
 }
 
+
 .social-media a:hover i{
     color: #444;
 }   
     
+    
+
 .navbar a{
     font-size: 18px;
     color: #fff;
@@ -68,23 +83,24 @@
     text-shadow: 0 0 10px rgba(0, 0, 0, .2);
 }    
 
+
+
 .banner{
     position: relative;
     width: 100%;
     height: 100vh;
-    overflow: hidden; 
 }
 
+
+
 .slider  .slide{
-    position: relative; /* Changed to relative */
+    position: absolute;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: row; /* Default for desktop */
-    flex-wrap: wrap; 
-    justify-content: center;
-    align-items: center;
 }
+
+
+
 
 .slide img{
     position: absolute;
@@ -92,64 +108,65 @@
     height: 100%;
     object-fit: cover;
     pointer-events: none;
-    z-index: -1; 
 }
+
+
 
 .slide .left-info{
-    position: relative; /* Important change for mobile */
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 50%;
-    height: 100%; /* Keep for desktop, overridden in mobile */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 1;
-    padding: 0 20px; /* Added padding */
-    box-sizing: border-box; /* Ensures padding is included in width */
+    height: 100%;
 }
 
+
+
 .left-info .penetrte-blur{
-    position: relative; /* Important change */
+    position: absolute;
     width: 100%;
-    height: auto; 
+    height: 100%;
     background: rgba(255, 255, 255, .1);
     backdrop-filter: blur(20px);
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    /* Removed webkit-mask properties as they can be problematic for responsiveness */
-    -webkit-mask: none;
-    -webkit-mask-clip: unset;
-    -webkit-mask-composite: unset;
+    -webkit-mask: linear-gradient(#000 0 0),
+    linear-gradient(#000 0 0);
+    -webkit-mask-clip: text,padding-box;
+    -webkit-mask-composite: xor;
 }
+
+
 
 .penetrte-blur h1{
     font-size: 150px;
     text-shadow: 0 0 10px rgba(255, 255 ,255 ,.1);
-    white-space: nowrap; /* Prevents text from wrapping on one line if space is tight */
-    overflow: hidden; /* Hides overflowing text */
-    text-overflow: clip; /* Clip overflowing text */
+
 }
 
+
+
 .left-info  .content{
-    position: relative; /* Important change */
-    bottom: auto;
-    left: auto;
+    position: absolute;
+    bottom: 8%;
+    left: 10%;
     color: #fff;
-    padding: 20px; 
-    text-align: center;
-    z-index: 2; /* Ensure content is above blur */
 }
+
+
 
 .content h3{
     font-size: 20px;
 }
 
+
 .content p{
     font-size: 16px;
     margin: 10px 0 15px;
 }
+
+
 
 .content .btn{
     display: inline-block;
@@ -165,24 +182,26 @@
     transition: .5s;
 }
 
+
 .content  .btn:hover{
     background: transparent;
     color: #fff;
 }
 
+
+
 .slide  .right-info{
-    position: relative; /* Important change for mobile */
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 50%;
-    height: 100%; /* Keep for desktop, overridden in mobile */
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    z-index: 1;
-    padding: 0 20px; /* Added padding */
-    box-sizing: border-box; /* Ensures padding is included in width */
 }
+
+
+
 
 .right-info  h1{
     font-size: 150px;
@@ -192,170 +211,35 @@
     0 2px 0 #c9c9c9,
     0 3px 0 #bbb,
     0 4px 0 #b9b9b9,
-    0 5px 0 #aaa, /* Added comma here */
+    0 5px 0 #aaa
     0 6px 1px rgba(0, 0, 0, .1),
     0 0 5px rgba(0, 0, 0, .1),
     0 1px 3px rgba(0, 0, 0, .3),
     0 3px 5px rgba(0, 0, 0, .2),
     0 5px 10px rgba(0, 0, 0, .25),
     0 10px 10px rgba(0, 0, 0, .2),
-    0 20px 20px rgba(0, 0, 0, .15); /* Corrected "r gba" to "rgba" */
-    white-space: nowrap; /* Prevents text from wrapping */
-    overflow: hidden; /* Hides overflowing text */
-    text-overflow: clip; /* Clip overflowing text */
+    0 20px 20px rgba(0, 0, 0, .15);
 }
 
+
+
 .right-info  h3{
-    position: relative; /* Important change */
+    position: absolute;
     font-size: 70px;
     color: #fff;
     text-shadow: 0 0 10px rgba(0, 0 , 0, .5);
-    transform: none; 
-    margin-left: 0; 
-    margin-top: 20px;
-    white-space: nowrap; /* Prevents text from wrapping */
-    overflow: hidden; /* Hides overflowing text */
-    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+    transform: translateY(120%);
+    margin-left: 13px;
+
 }
 
-/* Media Queries for Responsive Design */
 
-@media (max-width: 768px) {
-    .header {
-        padding: 20px 3%; 
-        flex-direction: column; 
-        position: relative; /* Ensures header scrolls with content */
-        height: auto; 
-    }
 
-    .logo {
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
 
-    .social-media {
-        margin: 10px 0;
-    }
 
-    .social-media a {
-        width: 30px;
-        height: 30px;
-    }
 
-    .social-media a i {
-        font-size: 18px;
-    }
 
-    .navbar {
-        width: 100%; 
-        text-align: center;
-        margin-top: 10px;
-    }
 
-    .navbar a {
-        margin: 0 10px; 
-        display: inline-block;
-    }
 
-    .banner {
-        height: auto; 
-        min-height: 100vh; /* Ensure banner is at least viewport height */
-        padding-top: 0; 
-    }
 
-    .slider .slide {
-        flex-direction: column; 
-        position: relative;
-        height: auto;
-    }
 
-    .slide .left-info,
-    .slide .right-info {
-        width: 100%; 
-        height: auto; 
-        min-height: 50vh; /* Give each half minimum height */
-        padding: 40px 5%; /* Increased padding for better spacing */
-        box-sizing: border-box;
-    }
-
-    .penetrte-blur h1,
-    .right-info h1 {
-        font-size: 80px; 
-        word-break: break-word; /* Allow long words to break */
-        white-space: normal; /* Allow text to wrap */
-    }
-
-    .right-info h3 {
-        font-size: 40px; 
-        margin-top: 10px;
-        word-break: break-word; /* Allow long words to break */
-        white-space: normal; /* Allow text to wrap */
-    }
-
-    .content h3 {
-        font-size: 20px;
-    }
-
-    .content p {
-        font-size: 14px;
-    }
-
-    .content .btn {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-    
-    .slide img {
-        position: absolute; /* Keep it absolute so content flows over it */
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center; 
-    }
-}
-
-@media (max-width: 480px) {
-    .header {
-        padding: 10px 2%;
-    }
-
-    .logo {
-        font-size: 20px;
-    }
-    
-    .social-media a {
-        width: 25px;
-        height: 25px;
-    }
-
-    .social-media a i {
-        font-size: 16px;
-    }
-
-    .navbar a {
-        font-size: 14px; /* Further reduced font size */
-        margin: 0 5px;
-    }
-
-    .penetrte-blur h1,
-    .right-info h1 {
-        font-size: 45px; /* Further reduced font size */
-    }
-
-    .right-info h3 {
-        font-size: 25px; /* Further reduced font size */
-    }
-
-    .content h3 {
-        font-size: 18px;
-    }
-
-    .content p {
-        font-size: 12px;
-    }
-
-    .content .btn {
-        padding: 8px 15px;
-        font-size: 12px;
-    }
-}

@@ -234,123 +234,127 @@
 }
 
 
+/* Media Queries for Responsive Design */
 
+/* برای صفحه نمایش های کوچکتر از 768px (معمولا تبلت ها و گوشی ها) */
 @media (max-width: 768px) {
     .header {
-        padding: 20px 3%;
+        padding: 20px 3%; /* کاهش padding هدر */
     }
 
     .logo {
-        font-size: 24px;
+        font-size: 24px; /* کاهش سایز فونت لوگو */
     }
 
     .social-media {
-        margin: 0 auto 0 20px;
+        margin: 0 auto 0 20px; /* کاهش margin اجتماعی */
     }
 
     .social-media a {
         width: 30px;
-        height: 30px;
+        height: 30px; /* کاهش سایز آیکون های اجتماعی */
     }
 
     .social-media a i {
-        font-size: 18px;
+        font-size: 18px; /* کاهش سایز فونت آیکون ها */
     }
 
     .slide .left-info {
-        width: 100%;
-        height: auto;
-        position: relative;
-        padding-bottom: 20px;
+        width: 100%; /* در گوشی، بخش چپ تمام عرض را بگیرد */
+        height: auto; /* ارتفاع خودکار */
+        position: relative; /* موقعیت نسبی برای ترتیب عناصر */
+        padding-bottom: 20px; /* اضافه کردن کمی padding در پایین */
     }
 
     .left-info .penetrte-blur {
-        position: relative;
-        height: auto;
-        display: block;
-        text-align: center;
-        padding: 50px 0 20px;
+        position: relative; /* تغییر از absolute به relative */
+        height: auto; /* ارتفاع خودکار */
+        display: block; /* برای اینکه h1 در خط جدید بیاید */
+        text-align: center; /* متن وسط چین شود */
+        padding: 50px 0 20px; /* اضافه کردن padding */
     }
 
     .penetrte-blur h1 {
-        font-size: 80px;
+        font-size: 80px; /* کاهش سایز فونت h1 بزرگ */
     }
 
     .left-info .content {
-        position: relative;
-        bottom: auto;
-        left: 0;
-        text-align: center;
-        padding: 0 5%;
+        position: relative; /* تغییر از absolute به relative */
+        bottom: auto; /* حذف bottom */
+        left: 0; /* حذف left */
+        text-align: center; /* وسط چین کردن محتوا */
+        padding: 0 5%; /* اضافه کردن padding افقی */
     }
 
     .content h3 {
-        font-size: 24px;
+        font-size: 24px; /* تنظیم سایز فونت h3 */
     }
 
-    .content h4 {
+    .content h4 { /* اگر h4 در html دارید و می خواهید تغییر دهید */
         font-size: 18px;
     }
 
     .content p {
-        font-size: 14px;
+        font-size: 14px; /* تنظیم سایز فونت پاراگراف */
     }
 
     .content .btn {
-        padding: 10px 20px;
+        padding: 10px 20px; /* کاهش اندازه دکمه */
         font-size: 14px;
     }
 
     .slide .right-info {
-        width: 100%;
-        height: auto;
-        display: block;
-        text-align: center;
-        padding-top: 20px;
+        width: 100%; /* در گوشی، بخش راست تمام عرض را بگیرد */
+        height: auto; /* ارتفاع خودکار */
+        display: block; /* برای اینکه h1 و h3 در خط جدید بیایند */
+        text-align: center; /* وسط چین شدن */
+        padding-top: 20px; /* کمی فاصله از بالا */
     }
 
     .right-info h1 {
-        font-size: 80px;
+        font-size: 80px; /* کاهش سایز فونت h1 بزرگ */
     }
 
     .right-info h3 {
-        position: relative;
-        transform: none;
-        margin-left: 0;
-        font-size: 40px;
-        padding-bottom: 30px;
+        position: relative; /* تغییر از absolute به relative */
+        transform: none; /* حذف ترنسفورم */
+        margin-left: 0; /* حذف margin */
+        font-size: 40px; /* کاهش سایز فونت h3 */
+        padding-bottom: 30px; /* فاصله از پایین */
     }
     
     .slide img {
-        object-position: center;
+        /* ممکن است نیاز باشد برای موبایل اندازه تصویر پس زمینه را کمی متفاوت کنید */
+        object-position: center; /* تصویر وسط چین شود */
     }
 }
 
+/* برای صفحه نمایش های کوچکتر از 480px (معمولا گوشی های کوچک) */
 @media (max-width: 480px) {
     .header {
-        padding: 15px 2%;
-        flex-direction: column;
-        position: relative;
+        padding: 15px 2%; /* padding کمتر برای هدر */
+        flex-direction: column; /* عناصر هدر زیر هم قرار بگیرند */
+        position: relative; /* از fixed خارج شود تا اسکرول شود */
     }
 
     .social-media {
-        margin: 10px 0 0;
+        margin: 10px 0 0; /* margin برای جداسازی از لوگو */
     }
 
     .logo {
-        font-size: 20px;
+        font-size: 20px; /* کوچکتر کردن لوگو */
     }
 
     .penetrte-blur h1 {
-        font-size: 60px;
+        font-size: 60px; /* باز هم کوچکتر کردن h1 */
     }
 
     .right-info h1 {
-        font-size: 60px;
+        font-size: 60px; /* باز هم کوچکتر کردن h1 سمت راست */
     }
 
     .right-info h3 {
-        font-size: 30px;
+        font-size: 30px; /* کوچکتر کردن h3 سمت راست */
     }
 
     .content h3 {
@@ -360,14 +364,3 @@
         font-size: 16px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -15,7 +15,7 @@
     padding: 30px 5%;
     background: transparent;
     display: flex;
-    justify-content: space-between; /* اضافه شد: برای توزیع بهتر عناصر در هدر */
+    justify-content: space-between;
     align-items: center;
     z-index: 100;
 }
@@ -28,7 +28,7 @@
 }
 
 .social-media{
-    margin: 0 auto 0 50px; /* این خط را می توانید حذف کنید یا نگه دارید، در موبایل override می شود */
+    margin: 0 auto 0 50px;
 }
     
 .social-media a{
@@ -42,7 +42,7 @@
     border-radius: 7px;
     text-decoration: none;
     margin-right: 5px;
-    transform:  .5s;
+    transition:  .5s;
 }
 
 .social-media a:hover{
@@ -72,18 +72,18 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    overflow: hidden; /* اضافه شد: برای جلوگیری از اسکرول افقی ناخواسته */
+    overflow: hidden; 
 }
 
 .slider  .slide{
-    position: absolute;
+    position: relative; /* Changed to relative */
     width: 100%;
     height: 100%;
-    display: flex; /* اضافه شد: برای استفاده از Flexbox */
-    flex-direction: row; /* پیش فرض در دسکتاپ */
-    flex-wrap: wrap; /* برای اینکه عناصر در موبایل زیر هم بیایند */
-    justify-content: center; /* وسط چین کردن عناصر */
-    align-items: center; /* وسط چین کردن عمودی */
+    display: flex;
+    flex-direction: row; /* Default for desktop */
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
 }
 
 .slide img{
@@ -92,33 +92,33 @@
     height: 100%;
     object-fit: cover;
     pointer-events: none;
-    z-index: -1; /* اضافه شد: مطمئن شوید تصویر همیشه در پشت باشد */
+    z-index: -1; 
 }
 
 .slide .left-info{
-    position: relative; /* تغییر مهم: برای موبایل بهتر است از absolute خارج شود */
-    top: auto;
-    left: auto;
+    position: relative; /* Important change for mobile */
     width: 50%;
-    height: 100%;
-    display: flex; /* اضافه شد: برای چیدمان داخلی flex */
-    flex-direction: column; /* چیدمان ستونی */
-    justify-content: center; /* محتوا وسط چین شود */
-    align-items: center; /* محتوا وسط چین شود */
-    text-align: center; /* متن وسط چین شود */
-    z-index: 1; /* برای اطمینان از قرار گرفتن روی تصویر */
+    height: 100%; /* Keep for desktop, overridden in mobile */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    padding: 0 20px; /* Added padding */
+    box-sizing: border-box; /* Ensures padding is included in width */
 }
 
 .left-info .penetrte-blur{
-    position: relative; /* تغییر مهم: از absolute خارج شود */
+    position: relative; /* Important change */
     width: 100%;
-    height: auto; /* ارتفاع خودکار */
+    height: auto; 
     background: rgba(255, 255, 255, .1);
     backdrop-filter: blur(20px);
-    display: flex; /* تغییر: برای محتوای داخلی */
-    justify-content: center; /* وسط چین */
-    align-items: center; /* وسط چین */
-    /* -webkit-mask و mask-clip و mask-composite را برای سازگاری بهتر حذف می کنیم */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Removed webkit-mask properties as they can be problematic for responsiveness */
     -webkit-mask: none;
     -webkit-mask-clip: unset;
     -webkit-mask-composite: unset;
@@ -127,16 +127,19 @@
 .penetrte-blur h1{
     font-size: 150px;
     text-shadow: 0 0 10px rgba(255, 255 ,255 ,.1);
-    /* ممکن است نیاز باشد در موبایل کوچکتر شود */
+    white-space: nowrap; /* Prevents text from wrapping on one line if space is tight */
+    overflow: hidden; /* Hides overflowing text */
+    text-overflow: clip; /* Clip overflowing text */
 }
 
 .left-info  .content{
-    position: relative; /* تغییر مهم: از absolute خارج شود */
+    position: relative; /* Important change */
     bottom: auto;
     left: auto;
     color: #fff;
-    padding: 20px; /* اضافه شد: کمی padding برای محتوا */
-    text-align: center; /* مطمئن شوید متن وسط چین است */
+    padding: 20px; 
+    text-align: center;
+    z-index: 2; /* Ensure content is above blur */
 }
 
 .content h3{
@@ -168,17 +171,17 @@
 }
 
 .slide  .right-info{
-    position: relative; /* تغییر مهم: برای موبایل بهتر است از absolute خارج شود */
-    top: auto;
-    right: auto;
+    position: relative; /* Important change for mobile */
     width: 50%;
-    height: 100%;
+    height: 100%; /* Keep for desktop, overridden in mobile */
     display: flex;
-    flex-direction: column; /* چیدمان ستونی */
-    justify-content: center; /* محتوا وسط چین شود */
-    align-items: center; /* محتوا وسط چین شود */
-    text-align: center; /* متن وسط چین شود */
-    z-index: 1; /* برای اطمینان از قرار گرفتن روی تصویر */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    padding: 0 20px; /* Added padding */
+    box-sizing: border-box; /* Ensures padding is included in width */
 }
 
 .right-info  h1{
@@ -189,44 +192,49 @@
     0 2px 0 #c9c9c9,
     0 3px 0 #bbb,
     0 4px 0 #b9b9b9,
-    0 5px 0 #aaa
+    0 5px 0 #aaa, /* Added comma here */
     0 6px 1px rgba(0, 0, 0, .1),
     0 0 5px rgba(0, 0, 0, .1),
     0 1px 3px rgba(0, 0, 0, .3),
     0 3px 5px rgba(0, 0, 0, .2),
     0 5px 10px rgba(0, 0, 0, .25),
     0 10px 10px rgba(0, 0, 0, .2),
-    0 20px 20px rgba(0, 0, 0, .15);
+    0 20px 20px rgba(0, 0, 0, .15); /* Corrected "r gba" to "rgba" */
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflowing text */
+    text-overflow: clip; /* Clip overflowing text */
 }
 
 .right-info  h3{
-    position: relative; /* تغییر مهم: از absolute خارج شود */
+    position: relative; /* Important change */
     font-size: 70px;
     color: #fff;
     text-shadow: 0 0 10px rgba(0, 0 , 0, .5);
-    transform: none; /* حذف ترنسفورم */
-    margin-left: 0; /* حذف margin */
-    margin-top: 20px; /* اضافه شد: کمی فاصله از h1 */
+    transform: none; 
+    margin-left: 0; 
+    margin-top: 20px;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
 }
 
 /* Media Queries for Responsive Design */
 
-/* برای صفحه نمایش های کوچکتر از 768px (معمولا تبلت ها و گوشی ها) */
 @media (max-width: 768px) {
     .header {
-        padding: 20px 3%;
-        flex-direction: column; /* عناصر هدر زیر هم قرار بگیرند */
-        position: relative; /* از fixed خارج شود تا اسکرول شود و Navbar دیده شود */
-        height: auto; /* ارتفاع هدر خودکار شود */
+        padding: 20px 3%; 
+        flex-direction: column; 
+        position: relative; /* Ensures header scrolls with content */
+        height: auto; 
     }
 
     .logo {
         font-size: 24px;
-        margin-bottom: 10px; /* اضافه شد: فاصله از عناصر پایین */
+        margin-bottom: 10px;
     }
 
     .social-media {
-        margin: 10px 0; /* تنظیم margin */
+        margin: 10px 0;
     }
 
     .social-media a {
@@ -239,43 +247,49 @@
     }
 
     .navbar {
-        width: 100%; /* navbar تمام عرض را بگیرد */
-        text-align: center; /* لینک ها وسط چین شوند */
-        margin-top: 10px; /* اضافه شد: فاصله از social media */
+        width: 100%; 
+        text-align: center;
+        margin-top: 10px;
     }
 
     .navbar a {
-        margin: 0 10px; /* فاصله بین لینک ها */
-        display: inline-block; /* برای اینکه margin افقی کار کند */
+        margin: 0 10px; 
+        display: inline-block;
     }
 
     .banner {
-        height: auto; /* ارتفاع بنر خودکار شود */
-        padding-top: 0; /* حذف padding اضافی */
+        height: auto; 
+        min-height: 100vh; /* Ensure banner is at least viewport height */
+        padding-top: 0; 
     }
 
     .slider .slide {
-        flex-direction: column; /* عناصر slide زیر هم قرار بگیرند */
+        flex-direction: column; 
         position: relative;
         height: auto;
     }
 
     .slide .left-info,
     .slide .right-info {
-        width: 100%; /* هر دو بخش چپ و راست تمام عرض را بگیرند */
-        height: auto; /* ارتفاع خودکار */
-        padding: 20px 5%; /* padding داخلی برای محتوا */
-        min-height: 50vh; /* حداقل ارتفاع برای هر بخش */
+        width: 100%; 
+        height: auto; 
+        min-height: 50vh; /* Give each half minimum height */
+        padding: 40px 5%; /* Increased padding for better spacing */
+        box-sizing: border-box;
     }
 
     .penetrte-blur h1,
     .right-info h1 {
-        font-size: 80px; /* کاهش سایز فونت h1 بزرگ */
+        font-size: 80px; 
+        word-break: break-word; /* Allow long words to break */
+        white-space: normal; /* Allow text to wrap */
     }
 
     .right-info h3 {
-        font-size: 40px; /* کاهش سایز فونت h3 */
-        margin-top: 10px; /* تنظیم margin top */
+        font-size: 40px; 
+        margin-top: 10px;
+        word-break: break-word; /* Allow long words to break */
+        white-space: normal; /* Allow text to wrap */
     }
 
     .content h3 {
@@ -292,12 +306,14 @@
     }
     
     .slide img {
-        object-position: center; /* تصویر پس زمینه وسط چین شود */
-        height: 100%; /* اطمینان از پوشش کامل ارتفاع در موبایل */
+        position: absolute; /* Keep it absolute so content flows over it */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center; 
     }
 }
 
-/* برای صفحه نمایش های کوچکتر از 480px (معمولا گوشی های کوچک) */
 @media (max-width: 480px) {
     .header {
         padding: 10px 2%;
@@ -317,17 +333,17 @@
     }
 
     .navbar a {
-        font-size: 16px;
-        margin: 0 8px;
+        font-size: 14px; /* Further reduced font size */
+        margin: 0 5px;
     }
 
     .penetrte-blur h1,
     .right-info h1 {
-        font-size: 50px;
+        font-size: 45px; /* Further reduced font size */
     }
 
     .right-info h3 {
-        font-size: 30px;
+        font-size: 25px; /* Further reduced font size */
     }
 
     .content h3 {
@@ -343,4 +359,3 @@
         font-size: 12px;
     }
 }
-

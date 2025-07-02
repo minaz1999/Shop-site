@@ -235,6 +235,134 @@
 
 
 
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 3%;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .social-media {
+        margin: 0 auto 0 20px;
+    }
+
+    .social-media a {
+        width: 30px;
+        height: 30px;
+    }
+
+    .social-media a i {
+        font-size: 18px;
+    }
+
+    .slide .left-info {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding-bottom: 20px;
+    }
+
+    .left-info .penetrte-blur {
+        position: relative;
+        height: auto;
+        display: block;
+        text-align: center;
+        padding: 50px 0 20px;
+    }
+
+    .penetrte-blur h1 {
+        font-size: 80px;
+    }
+
+    .left-info .content {
+        position: relative;
+        bottom: auto;
+        left: 0;
+        text-align: center;
+        padding: 0 5%;
+    }
+
+    .content h3 {
+        font-size: 24px;
+    }
+
+    .content h4 {
+        font-size: 18px;
+    }
+
+    .content p {
+        font-size: 14px;
+    }
+
+    .content .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .slide .right-info {
+        width: 100%;
+        height: auto;
+        display: block;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .right-info h1 {
+        font-size: 80px;
+    }
+
+    .right-info h3 {
+        position: relative;
+        transform: none;
+        margin-left: 0;
+        font-size: 40px;
+        padding-bottom: 30px;
+    }
+    
+    .slide img {
+        object-position: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 15px 2%;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .social-media {
+        margin: 10px 0 0;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .penetrte-blur h1 {
+        font-size: 60px;
+    }
+
+    .right-info h1 {
+        font-size: 60px;
+    }
+
+    .right-info h3 {
+        font-size: 30px;
+    }
+
+    .content h3 {
+        font-size: 20px;
+    }
+    .content h4 {
+        font-size: 16px;
+    }
+}
+
+
+
 
 
 
